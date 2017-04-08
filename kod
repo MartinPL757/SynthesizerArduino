@@ -1,0 +1,104 @@
+/*
+  Syntezator
+  zrobione przez Maciej3210
+ */
+
+// ustaw numer pinów:
+const int buttonPin1 = 2;     // pin przycisku 1
+const int buttonPin2 = 3;     // pin przycisku 2
+const int buttonPin3 = 4;     // pin przycisku 3
+const int buttonPin4 = 5;     // pin przycisku 4
+const int buttonPin5 = 6;     // pin przycisku 5
+const int buttonPin6 = 7;     // pin przycisku 6
+const int buzzer = 9; // buzzer lub głośnik do pinu 9 
+int potPin1 = 2; // pin potencjometru 1
+int potPin2 = 1; // pin potencjometru 2
+int val1 = 0; // zmienna wartości potencjometru 1
+int val2 = 0; // zmienna wartości potencjometru 2
+
+
+
+// variables will change:
+int buttonState1 = 0;         // zmienna do czytania statusu przycisku 1
+int buttonState2 = 0;         // zmienna do czytania statusu przycisku 2
+int buttonState3 = 0;         // zmienna do czytania statusu przycisku 3
+int buttonState4 = 0;         // zmienna do czytania statusu przycisku 4
+int buttonState5 = 0;         // zmienna do czytania statusu przycisku 5
+int buttonState6 = 0;         // zmienna do czytania statusu przycisku 6
+
+void setup() {
+  // ustawienie przycisków jako wejście:
+  pinMode(buttonPin1, INPUT);
+  pinMode(buttonPin2, INPUT);
+  pinMode(buttonPin3, INPUT);
+  pinMode(buttonPin4, INPUT);
+  pinMode(buttonPin5, INPUT);
+  pinMode(buttonPin6, INPUT);
+  pinMode(buzzer, OUTPUT); // ustawienie buzzera lub głośnika jako wyjście
+}
+
+void loop() {
+  // czytanie wartości potencjometrów
+  val1 = analogRead(potPin1);
+  val2 = analogRead(potPin2);
+  delay(10);
+  // czytanie wartości przycisków:
+  buttonState1 = digitalRead(buttonPin1);
+  buttonState2 = digitalRead(buttonPin2);
+  buttonState3 = digitalRead(buttonPin3);
+  buttonState4 = digitalRead(buttonPin4);
+  buttonState5 = digitalRead(buttonPin5);
+  buttonState6 = digitalRead(buttonPin6);
+
+  // jeśli klikniemy przycisk to się uruchomi ten skrypt
+  // tone - częstotliwość w Hz
+  // noTone - przestaje grać
+  // od val1 zależy częstotliwość dźwięku, a od val2 - długość.
+  if (buttonState1 == HIGH) {
+    tone(buzzer, val1+130);
+    delay(val2);
+    noTone(buzzer);
+  } else {
+    noTone(buzzer);
+  }
+  
+  if (buttonState2 == HIGH) {
+    tone(buzzer, val1+147);
+    delay(val2);
+    noTone(buzzer);
+  } else {
+    noTone(buzzer);
+  }
+
+  if (buttonState3 == HIGH) {
+    tone(buzzer, val1+165);
+    delay(val2);
+    noTone(buzzer);
+  } else {
+    noTone(buzzer);
+  }
+
+  if (buttonState4 == HIGH) {
+    tone(buzzer, val1+175);
+    delay(val2);
+    noTone(buzzer);
+  } else {
+    noTone(buzzer);
+  }
+
+  if (buttonState5 == HIGH) {
+    tone(buzzer, val1+196);
+    delay(val2);
+    noTone(buzzer);
+  } else {
+    noTone(buzzer);
+  }
+
+  if (buttonState6 == HIGH) {
+    tone(buzzer, val1+220);
+    delay(val2);
+    noTone(buzzer);
+  } else {
+    noTone(buzzer);
+  }
+}
